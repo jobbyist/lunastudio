@@ -1,0 +1,59 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
+export const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-card">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="text-center space-y-8 max-w-4xl mx-auto">
+          {/* Main Heading */}
+          <div className="space-y-4">
+            <p className="text-primary text-sm md:text-base tracking-[0.3em] uppercase">
+              The Best Luxury Hair
+            </p>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight">
+              THE <span className="text-primary">LUXE</span>
+            </h1>
+            <p className="text-2xl md:text-3xl font-serif italic text-muted-foreground">
+              By Luna Studio
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <div className="pt-8">
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg"
+            >
+              <Link to="/shop">SHOP NOW</Link>
+            </Button>
+          </div>
+
+          {/* Feature Text */}
+          <div className="pt-12">
+            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Premium Brazilian, Peruvian, and Malaysian hair extensions. 
+              Experience luxury that lasts.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-2 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
