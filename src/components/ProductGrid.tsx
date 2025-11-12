@@ -2,12 +2,54 @@ import { useEffect, useState } from "react";
 import { fetchProducts, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "./ProductCard";
 import { Loader2 } from "lucide-react";
+import productPlaceholder from "@/assets/product-placeholder.webp";
 
 interface ProductGridProps {
   title?: string;
   searchQuery?: string;
   limit?: number;
 }
+
+// Sample product data for when Shopify has no products
+const createSampleProducts = (count: number): ShopifyProduct[] => {
+  return Array.from({ length: count }, (_, i) => ({
+    node: {
+      id: `sample-${i}`,
+      title: "Example Product Title",
+      handle: `example-product-${i}`,
+      description: "Premium quality hair product",
+      priceRange: {
+        minVariantPrice: {
+          amount: "999.99",
+          currencyCode: "ZAR"
+        }
+      },
+      images: {
+        edges: [{
+          node: {
+            url: productPlaceholder,
+            altText: "Example Product"
+          }
+        }]
+      },
+      variants: {
+        edges: [{
+          node: {
+            id: `variant-${i}`,
+            title: "Default",
+            price: {
+              amount: "999.99",
+              currencyCode: "ZAR"
+            },
+            availableForSale: true,
+            selectedOptions: []
+          }
+        }]
+      },
+      options: []
+    }
+  }));
+};
 
 export const ProductGrid = ({ title = "Bestsellers", searchQuery, limit = 8 }: ProductGridProps) => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -18,9 +60,17 @@ export const ProductGrid = ({ title = "Bestsellers", searchQuery, limit = 8 }: P
       try {
         setLoading(true);
         const data = await fetchProducts(limit, searchQuery);
-        setProducts(data);
+        
+        // If no products from Shopify, use sample products
+        if (data.length === 0) {
+          setProducts(createSampleProducts(6));
+        } else {
+          setProducts(data);
+        }
       } catch (error) {
         console.error("Error loading products:", error);
+        // On error, show sample products
+        setProducts(createSampleProducts(6));
       } finally {
         setLoading(false);
       }

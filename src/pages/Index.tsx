@@ -4,6 +4,7 @@ import { Categories } from "@/components/Categories";
 import { BrowseCategories } from "@/components/BrowseCategories";
 import { ProductGrid } from "@/components/ProductGrid";
 import { InstagramReels } from "@/components/InstagramReels";
+import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
         <BrowseCategories />
         <Categories />
         <InstagramReels />
+        <Newsletter />
       </main>
       <Footer />
     </div>

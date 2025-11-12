@@ -1,21 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import heroImage1 from "@/assets/hero-1.jpg";
+import heroImage2 from "@/assets/hero-2.jpg";
+import heroImage3 from "@/assets/hero-3.jpg";
 
 export const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const heroImages = [heroImage1, heroImage2, heroImage3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-card">
-      
-      
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Images */}
+      {heroImages.map((image, index) => (
         <div
-          className="absolute inset-0"
+          key={index}
+          className="absolute inset-0 transition-opacity duration-1000"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
-            backgroundSize: "50px 50px",
+            opacity: currentImageIndex === index ? 0.3 : 0,
+            backgroundImage: `url(${image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
-      </div>
+      ))}
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/90" />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="text-center space-y-8 max-w-4xl mx-auto">

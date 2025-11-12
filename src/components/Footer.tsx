@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle, CreditCard } from "lucide-react";
+import { Mail, Phone, MessageCircle, CreditCard, Instagram, Twitter, Facebook } from "lucide-react";
 import { LegalDialog, TermsContent, PrivacyContent, RefundsContent, ShippingContent, ContactContent } from "./LegalDialog";
+import { FaTiktok } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -97,6 +98,46 @@ export const Footer = () => {
             <LegalDialog title="Contact Us" content={<ContactContent />}>
               Contact
             </LegalDialog>
+          </div>
+
+          {/* Social Media Links */}
+          <div className="flex justify-center gap-4 mb-6">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-background border border-border rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-background border border-border rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-background border border-border rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-background border border-border rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+              aria-label="TikTok"
+            >
+              <FaTiktok className="h-5 w-5" />
+            </a>
           </div>
 
           <p className="text-center text-sm text-muted-foreground">

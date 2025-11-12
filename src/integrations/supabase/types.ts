@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      newsletter_subscriptions: {
+        Row: {
+          email: string
+          id: string
+          subscribed_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          subscribed_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
+      product_ratings: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          rating: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          rating: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          rating?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      wishlists: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
