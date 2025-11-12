@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Categories } from "@/components/Categories";
+import { BrowseCategories } from "@/components/BrowseCategories";
 import { ProductGrid } from "@/components/ProductGrid";
 import { InstagramReels } from "@/components/InstagramReels";
 import { Footer } from "@/components/Footer";
@@ -18,13 +19,13 @@ const Index = () => {
               TREAT YOURSELF TO TRUE LUXURY
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Our luxury hair extensions have the best quality, you can't deserve any other. 
-              Unbeatable and durable. Verified by notable hair stylists and celebrities.
+              At Luna Studio, we are confident that our premium hair products and accessories are of the best possible quality. If you're unhappy with your purchase, let us know and we'll refund you or replace your item with another product or service of the same value.
             </p>
           </div>
         </section>
 
         <ProductGrid />
+        <BrowseCategories />
         <Categories />
         <InstagramReels />
       </main>

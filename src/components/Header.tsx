@@ -23,7 +23,7 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         {/* Top Bar */}
         <div className="py-2 border-b border-border/50 text-center text-sm text-muted-foreground">
-          Free Shipping on Orders Over R1500 | Shop Now, Pay Later
+          Free Shipping + 10% OFF your first order above $100 with code NEWLUNA25
         </div>
 
         {/* Main Header */}

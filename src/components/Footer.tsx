@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, CreditCard } from "lucide-react";
+import { LegalDialog, TermsContent, PrivacyContent, RefundsContent, ShippingContent, ContactContent } from "./LegalDialog";
 
 export const Footer = () => {
   return (
@@ -58,8 +59,49 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Luna Studio. All rights reserved.</p>
+        <div className="border-t border-border mt-8 pt-8">
+          {/* Payment Methods */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <CreditCard className="h-5 w-5" />
+              <span className="text-xs">We Accept:</span>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <div className="bg-background border border-border px-3 py-1.5 rounded text-xs font-medium">VISA</div>
+              <div className="bg-background border border-border px-3 py-1.5 rounded text-xs font-medium">Mastercard</div>
+              <div className="bg-background border border-border px-3 py-1.5 rounded text-xs font-medium">AMEX</div>
+              <div className="bg-background border border-border px-3 py-1.5 rounded text-xs font-medium">PayJustNow</div>
+              <div className="bg-background border border-border px-3 py-1.5 rounded text-xs font-medium">HappyPay</div>
+              <div className="bg-background border border-border px-3 py-1.5 rounded text-xs font-medium">PayPal</div>
+            </div>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+            <LegalDialog title="Terms of Service" content={<TermsContent />}>
+              Terms
+            </LegalDialog>
+            <span className="text-muted-foreground">•</span>
+            <LegalDialog title="Privacy Policy" content={<PrivacyContent />}>
+              Privacy
+            </LegalDialog>
+            <span className="text-muted-foreground">•</span>
+            <LegalDialog title="Refund Policy" content={<RefundsContent />}>
+              Refunds
+            </LegalDialog>
+            <span className="text-muted-foreground">•</span>
+            <LegalDialog title="Shipping Information" content={<ShippingContent />}>
+              Shipping
+            </LegalDialog>
+            <span className="text-muted-foreground">•</span>
+            <LegalDialog title="Contact Us" content={<ContactContent />}>
+              Contact
+            </LegalDialog>
+          </div>
+
+          <p className="text-center text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} Luna Studio. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
