@@ -1,0 +1,12 @@
+{%- comment -%}
+  Cart Template
+  This template is handled by the React application
+{%- endcomment -%}
+
+{% section 'react-app-container' %}
+
+<script type="application/json" id="cart-data">
+  {
+    "cart": {{ cart | json }}
+  }
+</script>

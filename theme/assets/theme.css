@@ -1,0 +1,119 @@
+/**
+ * Luna Lux Hair - Base Theme Styles
+ * These styles load before the React app and handle basic layout
+ */
+
+/* Accessibility utilities */
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
+}
+
+.skip-to-content-link:focus {
+  clip: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  z-index: 10000;
+}
+
+/* Focus management */
+.focus-none {
+  outline: none;
+}
+
+.focus-none:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Base body styles */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px base for easier rem calculations */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  font-weight: var(--font-body-weight);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading state */
+#root:empty::after {
+  content: 'Loading...';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  font-size: 1.8rem;
+  color: var(--color-primary, #000);
+}
+
+/* Ensure main content is accessible */
+#MainContent {
+  min-height: 50vh;
+}
+
+/* Template-specific classes */
+.template-index #MainContent {
+  padding: 0;
+}
+
+.template-product #MainContent,
+.template-collection #MainContent,
+.template-page #MainContent,
+.template-cart #MainContent {
+  padding: 2rem 0;
+}
+
+/* Section spacing */
+.section {
+  padding: 4rem 0;
+}
+
+/* Responsive container (fallback) */
+.container {
+  width: 100%;
+  max-width: var(--container-width, 1280px);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* React app section */
+.react-app-section {
+  width: 100%;
+}
+
+/* Print styles */
+@media print {
+  .skip-to-content-link,
+  header,
+  footer,
+  .button {
+    display: none;
+  }
+}

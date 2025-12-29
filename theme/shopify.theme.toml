@@ -1,0 +1,30 @@
+# Shopify Theme Configuration
+# https://shopify.dev/docs/themes/tools/cli
+
+# Theme information
+[theme]
+name = "Luna Lux Hair"
+version = "1.0.0"
+author = "Luna Luxury Hair"
+documentation_url = "https://github.com/jobbyist/lunastudio"
+support_url = "https://github.com/jobbyist/lunastudio/issues"
+
+# Development configuration
+[development]
+store = "luna-hair-boutique-9dwzm.myshopify.com"
+
+# Ignore patterns for theme upload
+[ignore]
+patterns = [
+  "*.ts",
+  "*.tsx", 
+  "*.jsx",
+  "node_modules/",
+  "src/",
+  ".git/",
+  "*.config.*",
+  "tsconfig*.json",
+  "package*.json",
+  "*.md",
+  "!SHOPIFY_THEME_README.md"
+]

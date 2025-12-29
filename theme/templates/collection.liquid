@@ -1,0 +1,13 @@
+{%- comment -%}
+  Collection Template
+  This template is handled by the React application
+{%- endcomment -%}
+
+{% section 'react-app-container' %}
+
+<script type="application/json" id="collection-data">
+  {
+    "collection": {{ collection | json }},
+    "products": {{ collection.products | json }}
+  }
+</script>

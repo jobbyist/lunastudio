@@ -1,0 +1,44 @@
+{%- comment -%}
+  Footer Section
+  The React app handles the actual footer rendering
+{%- endcomment -%}
+
+<footer id="shopify-section-footer" class="footer-section">
+  {%- comment -%} React app footer component will render here {%- endcomment -%}
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "section",
+  "class": "section-footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Footer Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "The footer is rendered by the React application. Customize footer appearance in the React components."
+    },
+    {
+      "type": "richtext",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "<p>© 2025 Luna Lux Hair. All rights reserved.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_icons",
+      "label": "Show social media icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

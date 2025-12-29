@@ -1,0 +1,48 @@
+# Source files - these are compiled to assets
+*.ts
+*.tsx
+*.jsx
+
+# Config files
+*.config.ts
+*.config.js
+tsconfig*.json
+
+# Development files
+node_modules/
+.git/
+.github/
+src/
+public/
+*.md
+!SHOPIFY_THEME_README.md
+
+# Build artifacts
+dist/
+*.log
+*.lock
+package-lock.json
+bun.lockb
+
+# Environment files
+.env*
+
+# Testing
+*.test.*
+*.spec.*
+
+# Documentation (except theme docs)
+README.md
+DEPLOYMENT_SETUP.md
+QUICKSTART_DEPLOYMENT.md
+BUNDLE_FEATURE_DOCUMENTATION.md
+admin/
+
+# Database
+supabase/
+
+# Other
+.DS_Store
+*.swp
+*.swo
+*~

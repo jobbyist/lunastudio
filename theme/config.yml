@@ -1,0 +1,11 @@
+development:
+  store: luna-hair-boutique-9dwzm.myshopify.com
+  theme: live
+
+staging:
+  store: luna-hair-boutique-9dwzm.myshopify.com
+  theme: staging
+
+production:
+  store: luna-hair-boutique-9dwzm.myshopify.com
+  theme: live

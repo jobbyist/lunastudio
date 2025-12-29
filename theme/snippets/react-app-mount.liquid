@@ -1,0 +1,10 @@
+{%- comment -%}
+  This snippet loads the React application
+  The React app will be built and bundled into the assets folder
+{%- endcomment -%}
+
+<div id="root"></div>
+
+{%- comment -%} Load React app bundle {%- endcomment -%}
+<script type="module" crossorigin src="{{ 'react-app.js' | asset_url }}"></script>
+<link rel="stylesheet" href="{{ 'react-app.css' | asset_url }}">

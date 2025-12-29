@@ -1,0 +1,15 @@
+{%- comment -%}
+  Product Template
+  This template is handled by the React application
+{%- endcomment -%}
+
+{% section 'react-app-container' %}
+
+<script type="application/json" id="product-data">
+  {
+    "product": {{ product | json }},
+    "variants": {{ product.variants | json }},
+    "images": {{ product.images | json }},
+    "options": {{ product.options | json }}
+  }
+</script>

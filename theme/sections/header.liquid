@@ -1,0 +1,44 @@
+{%- comment -%}
+  Header Section
+  The React app handles the actual header rendering
+{%- endcomment -%}
+
+<header id="shopify-section-header" class="header-section">
+  {%- comment -%} React app header component will render here {%- endcomment -%}
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "The header is rendered by the React application. Customize header appearance in the React components."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show cart icon",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

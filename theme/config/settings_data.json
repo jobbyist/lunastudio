@@ -1,0 +1,29 @@
+{
+  "current": {
+    "color_primary": "#000000",
+    "color_secondary": "#D4AF37",
+    "color_accent": "#9b87f5",
+    "font_heading": "playfair_display_n4",
+    "font_body": "inter_n4",
+    "container_width": 1280,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "show_search": true,
+          "show_cart": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_text": "<p>© 2025 Luna Lux Hair. All rights reserved.</p>",
+          "show_social_icons": true,
+          "show_payment_icons": true
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

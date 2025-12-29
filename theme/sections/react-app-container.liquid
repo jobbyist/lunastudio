@@ -1,0 +1,26 @@
+{%- comment -%}
+  React App Container Section
+  This section provides the container for the React application to render into
+{%- endcomment -%}
+
+<div class="react-app-section" data-section-id="{{ section.id }}" data-section-type="react-app-container">
+  {%- comment -%} React app will mount here via the root div in theme.liquid {%- endcomment -%}
+</div>
+
+{% schema %}
+{
+  "name": "React App Container",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "React Application"
+    },
+    {
+      "type": "paragraph",
+      "content": "This section contains the React application. The app will handle routing and rendering."
+    }
+  ]
+}
+{% endschema %}
