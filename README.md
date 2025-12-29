@@ -1,10 +1,18 @@
 # Luna Lux Hair
 
+# Luna Lux Hair
+
 ## ⚡ Shopify Theme Available!
 
 This repository now includes a **Shopify theme** version! The React application has been converted to work as a custom Shopify theme.
 
-📖 **[View Shopify Theme Documentation →](SHOPIFY_THEME_README.md)**
+### 📚 Shopify Documentation
+
+- 📖 **[Full Theme Documentation](SHOPIFY_THEME_README.md)** - Complete guide to the theme
+- 🚀 **[Quick Start Guide](SHOPIFY_QUICK_START.md)** - Deploy in minutes
+- ✅ **[Setup Checklist](SHOPIFY_SETUP_CHECKLIST.md)** - Step-by-step checklist
+- 🏗️ **[Architecture Overview](SHOPIFY_ARCHITECTURE.md)** - How it all works
+- 🔄 **[Migration Guide](SHOPIFY_MIGRATION_GUIDE.md)** - Understand what changed
 
 ### Quick Start for Shopify
 
