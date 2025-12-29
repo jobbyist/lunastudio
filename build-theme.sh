@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Build script for Luna Lux Hair Shopify Theme
 # This script builds the React application and prepares it for Shopify deployment

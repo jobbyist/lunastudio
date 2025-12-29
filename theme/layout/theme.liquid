@@ -110,9 +110,10 @@
       }
     </script>
 
-    {%- if request.design_mode -%}
-      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    {%- comment -%}
+    Theme editor JavaScript is loaded from the React app
+    The React application handles theme editor interactions
+    {%- endcomment -%}
 
     {% render 'react-app-mount' %}
   </body>

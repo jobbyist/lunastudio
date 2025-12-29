@@ -28,8 +28,8 @@ export default defineConfig({
         },
       },
     },
-    // Minify for production
-    minify: "terser",
+    // Minify for production using esbuild (default)
+    minify: "esbuild",
     sourcemap: false,
   },
   // Use absolute URLs for assets since they'll be served from Shopify CDN
