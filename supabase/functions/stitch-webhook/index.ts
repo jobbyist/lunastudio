@@ -9,6 +9,71 @@ const corsHeaders = {
 const SHOPIFY_STORE_DOMAIN = "luna-hair-boutique-9dwzm.myshopify.com";
 const SHOPIFY_API_VERSION = "2024-10";
 
+function timingSafeEqual(left: string, right: string): boolean {
+  if (left.length !== right.length) {
+    return false;
+  }
+
+  let result = 0;
+  for (let i = 0; i < left.length; i += 1) {
+    result |= left.charCodeAt(i) ^ right.charCodeAt(i);
+  }
+
+  return result === 0;
+}
+
+function toHex(buffer: ArrayBuffer): string {
+  return Array.from(new Uint8Array(buffer))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+// Signing algorithm:
+// 1) Compute HMAC-SHA256 over the raw request body using STITCH_WEBHOOK_SECRET.
+// 2) Hex-encode the signature bytes (lowercase).
+// 3) Compare with the x-stitch-signature header value.
+async function verifyStitchSignature(
+  rawBody: string,
+  signatureHeader: string | null,
+): Promise<{ ok: boolean; status: number; message: string }> {
+  const webhookSecret = Deno.env.get("STITCH_WEBHOOK_SECRET");
+
+  if (!webhookSecret) {
+    console.error("STITCH_WEBHOOK_SECRET not configured");
+    return { ok: false, status: 500, message: "Webhook secret not configured" };
+  }
+
+  if (!signatureHeader) {
+    console.warn("Missing x-stitch-signature header");
+    return { ok: false, status: 401, message: "Missing signature" };
+  }
+
+  try {
+    const encoder = new TextEncoder();
+    const key = await crypto.subtle.importKey(
+      "raw",
+      encoder.encode(webhookSecret),
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"],
+    );
+
+    const signature = await crypto.subtle.sign("HMAC", key, encoder.encode(rawBody));
+    const computedSignature = toHex(signature);
+    const normalizedHeader = signatureHeader.trim().toLowerCase();
+
+    if (!timingSafeEqual(computedSignature, normalizedHeader)) {
+      console.warn("Invalid x-stitch-signature");
+      return { ok: false, status: 403, message: "Invalid signature" };
+    }
+
+    return { ok: true, status: 200, message: "Signature verified" };
+  } catch (error) {
+    console.error("Signature verification error:", error);
+    return { ok: false, status: 500, message: "Signature verification failed" };
+  }
+}
+
 // Stitch Express webhook payload types
 interface StitchExpressWebhookPayload {
   id?: string;
@@ -261,7 +326,20 @@ serve(async (req) => {
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const shopifyAccessToken = Deno.env.get("SHOPIFY_ACCESS_TOKEN");
 
-    const payload: StitchExpressWebhookPayload = await req.json();
+    const rawBody = await req.text();
+    const signatureCheck = await verifyStitchSignature(
+      rawBody,
+      req.headers.get("x-stitch-signature"),
+    );
+
+    if (!signatureCheck.ok) {
+      return new Response(JSON.stringify({ error: signatureCheck.message }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: signatureCheck.status,
+      });
+    }
+
+    const payload: StitchExpressWebhookPayload = JSON.parse(rawBody);
     console.log("Stitch Express webhook received:", JSON.stringify(payload, null, 2));
 
     // Extract external reference from various possible locations
