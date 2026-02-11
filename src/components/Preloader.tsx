@@ -16,13 +16,19 @@ const beautyQuotes = [
   "Embrace your natural beauty and enhance it with confidence.",
 ];
 
+// Duration constants (in milliseconds)
+const MIN_DURATION = 5000; // 5 seconds
+const MAX_DURATION = 10000; // 10 seconds
+
+// Helper function to get a random quote
+const getRandomQuote = () => {
+  return beautyQuotes[Math.floor(Math.random() * beautyQuotes.length)];
+};
+
 export const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [quote] = useState(() => {
-    // Select a random quote when component mounts
-    return beautyQuotes[Math.floor(Math.random() * beautyQuotes.length)];
-  });
+  const [quote] = useState(() => getRandomQuote());
 
   useEffect(() => {
     // Check if preloader has been shown in this session
@@ -34,8 +40,8 @@ export const Preloader = () => {
       return;
     }
 
-    // Random duration between 5-10 seconds (5000-10000ms)
-    const duration = Math.floor(Math.random() * 5000) + 5000;
+    // Random duration between 5-10 seconds
+    const duration = Math.floor(Math.random() * (MAX_DURATION - MIN_DURATION)) + MIN_DURATION;
     const interval = 50;
     const steps = duration / interval;
     const increment = 100 / steps;
@@ -76,7 +82,7 @@ export const Preloader = () => {
           {/* Logo */}
           <motion.img
             src={lunaLoveLogo}
-            alt="Luna Love Studio"
+            alt="Luna Lux Hair"
             className="w-48 h-auto mb-12"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
