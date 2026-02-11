@@ -14,8 +14,6 @@ interface TimeLeft {
 }
 
 export const CountdownTimer = ({ targetDate, onComplete }: CountdownTimerProps) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
-
   function calculateTimeLeft(): TimeLeft {
     const difference = targetDate.getTime() - new Date().getTime();
     
@@ -30,6 +28,8 @@ export const CountdownTimer = ({ targetDate, onComplete }: CountdownTimerProps) 
       seconds: Math.floor((difference / 1000) % 60),
     };
   }
+
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
