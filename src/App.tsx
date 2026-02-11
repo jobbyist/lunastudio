@@ -10,6 +10,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { VisitorTracker } from "@/components/VisitorTracker";
 import { CustomWigPromoPopup } from "@/components/CustomWigPromoPopup";
+import { Preloader } from "@/components/Preloader";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import CustomizeProduct from "./pages/CustomizeProduct";
@@ -68,6 +69,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <Preloader />
         <BrowserRouter>
           <ScrollToTop />
           <GoogleAnalytics />
