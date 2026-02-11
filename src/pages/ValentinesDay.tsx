@@ -337,7 +337,7 @@ const ValentinesDay = () => {
             <Heart className="h-16 w-16 mx-auto mb-6 text-rose-500 animate-pulse" />
             
             <h2 className="text-4xl md:text-5xl font-serif mb-6">
-              Ready for your refill?
+              Ready for Your Valentine's Transformation?
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

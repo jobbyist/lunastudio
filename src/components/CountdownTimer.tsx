@@ -48,7 +48,8 @@ export const CountdownTimer = ({ targetDate, onComplete }: CountdownTimerProps) 
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate, onComplete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [targetDate]);
 
   const timeUnits = [
     { label: "Days", value: timeLeft.days },
