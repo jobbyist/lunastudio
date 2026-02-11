@@ -36,6 +36,7 @@ import ArticlesPage from "./pages/Articles";
 import Bestsellers from "./pages/Bestsellers";
 import Promotions from "./pages/Promotions";
 import Wishlist from "./pages/Wishlist";
+import ValentinesDay from "./pages/ValentinesDay";
 import BrazilianVirginCollection from "./pages/BrazilianVirginCollection";
 import VietnameseVirginCollection from "./pages/VietnameseVirginCollection";
 import RawVietnameseCollection from "./pages/RawVietnameseCollection";
@@ -103,6 +104,7 @@ const App = () => (
             <Route path="/articles" element={<ArticlesPage />} />
             <Route path="/bestsellers" element={<Bestsellers />} />
             <Route path="/promotions" element={<Promotions />} />
+            <Route path="/valentinesday" element={<ValentinesDay />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/payment-complete" element={<PaymentComplete />} />
             
